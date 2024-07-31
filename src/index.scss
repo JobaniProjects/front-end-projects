@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+$default-color: greenyellow;
+$font-1:'M PLUS Rounded 1c';
+
+body{
+    font-family:$font-1;
+    background-image: url('../public/mountains-background.jpg');
+    background-size:cover;
+    // background-repeat: no-repeat;
+    // background-position:center;
+}
+
+#quote-box{
+    background-color:$default-color;
+    width:500px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:24vh;
+    padding:30px 30px;
+    border-radius:10px;
+    // opacity: .95;
+    #text{
+        font-weight:500;
+        font-size: 1.4rem;
+    }
+    #author{
+        text-align:right;
+    }
+    #new-quote{
+        float:right;
+    }
+    #tweet-quote{
+        color:white;
+    }
+}
