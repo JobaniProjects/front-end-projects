@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
-$default-color: greenyellow;
+$default-color: #123c40;
 $font-1:'M PLUS Rounded 1c';
 
 body{
@@ -22,9 +22,11 @@ body{
     #text{
         font-weight:500;
         font-size: 1.4rem;
+        color:white;
     }
     #author{
         text-align:right;
+        color:white;
     }
     #new-quote{
         float:right;
