@@ -7,6 +7,7 @@ let authorTwitterUrl = '';
 let twitterUrl = 'https://twitter.com/intent/tweet?text=';
 let tweetQuote ='';
 
+
 class QuoteMachine extends React.Component{
     constructor(props){
         super(props);
@@ -30,17 +31,46 @@ class QuoteMachine extends React.Component{
     }
 
     fetchQuote(){
+        // let quoteData = [];
+        // let authorData = [];
+        // let ranNum = Math.floor(Math.random() * 19);
+        // let ranPageNum = Math.floor(Math.random() * 30);
+        // let apiLink = 'https://api.quotable.io/quotes?page='.concat(ranPageNum);
+        // console.log("Link to api pages: ", apiLink);
+        // fetch(apiLink)
+        //     .then((res)=>res.json())
+        //     .then((data)=>{
+        //         quoteData = data["results"][ranNum]["content"];
+        //         authorData = data["results"][ranNum].author;
+        //         this.setState({
+        //             quote: quoteData,
+        //             author: authorData
+        //         });
+        //         this.adjustTweetUrl();
+        //         // console.log("API Quotes: ", data);
+        //     })
+        //     .catch((err)=>console.error('Error: ', err));
+
+        //----------------------------------------------------------------
+        //Version 2
         let quoteData = [];
         let authorData = [];
-        let ranNum = Math.floor(Math.random() * 19);
-        let ranPageNum = Math.floor(Math.random() * 30);
-        let apiLink = 'https://api.quotable.io/quotes?page='.concat(ranPageNum);
+        
+        
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-Api-Key': process.env.REACT_APP_API_KEY
+            }
+        }
+        
+        let apiLink = 'https://api.api-ninjas.com/v1/quotes?category=happiness';
         // console.log("Link to api pages: ", apiLink);
-        fetch(apiLink)
+        fetch(apiLink, options)
             .then((res)=>res.json())
             .then((data)=>{
-                quoteData = data["results"][ranNum]["content"];
-                authorData = data["results"][ranNum].author;
+                quoteData = data[0]["quote"];
+                authorData = data[0]["author"];
                 this.setState({
                     quote: quoteData,
                     author: authorData
@@ -48,6 +78,8 @@ class QuoteMachine extends React.Component{
                 this.adjustTweetUrl();
                 // console.log("API Quotes: ", data);
             })
+            .catch((err)=>console.error('Error: ', err));
+
     }
 
     componentDidMount(){
