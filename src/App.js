@@ -64,7 +64,8 @@ class QuoteMachine extends React.Component{
             }
         }
         
-        let apiLink = 'https://api.api-ninjas.com/v1/quotes?category=happiness';
+        let apiLink = 'https://api.api-ninjas.com/v1/quotes';
+        //https://api.api-ninjas.com/v1/quotes?category=happiness
         // console.log("Link to api pages: ", apiLink);
         fetch(apiLink, options)
             .then((res)=>res.json())
